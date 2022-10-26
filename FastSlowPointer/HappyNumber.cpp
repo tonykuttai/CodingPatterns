@@ -15,6 +15,16 @@ Output: false (12 is not a happy number)
 Explanations: Here are the steps to find out that 12 is not a happy number:
 12(1+4)-->5(25)-->25(4+25)-->29(4+81)-->85(64+25)-->89(64+81)-->145(1+16+25)-->42(16+4)-->20(4+0)-->4(16)-->16(1+36)-->37(9+49)-->58(25+64)-->89
 Step ‘13’ leads us back to step ‘5’ as the number becomes equal to ‘89’, this means that we can never reach ‘1’, therefore, ‘12’ is not a happy number.
+
+Solution#
+The process, defined above, to find out if a number is a happy number or not, always ends in a cycle.
+If the number is a happy number, the process will be stuck in a cycle on number ‘1,’ and if the number is not a happy number 
+then the process will be stuck in a cycle with a set of numbers. As we saw in Example-2 while determining if ‘12’ is a happy 
+number or not, our process will get stuck in a cycle with the following numbers: 89 -> 145 -> 42 -> 20 -> 4 -> 16 -> 37 -> 58 -> 89
+
+We saw in the LinkedList Cycle problem that we can use the Fast & Slow pointers method to find a cycle among a set of elements. 
+As we have described above, each number will definitely have a cycle. Therefore, we will use the same fast & slow pointer strategy 
+to find the cycle and once the cycle is found, we will see if the cycle is stuck on number ‘1’ to find out if the number is happy or not.
 */
 #include <iostream>
 using namespace std;
