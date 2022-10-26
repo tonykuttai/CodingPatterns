@@ -17,7 +17,14 @@ class ListNode {
 class LinkedListCycle {
  public:
   static bool hasCycle(ListNode *head) {
-    // TODO: Write your code here
+    ListNode *slow{head}, *fast{head};
+    while(fast && fast->next){
+      slow = slow->next;
+      fast = fast->next->next;
+      if(slow == fast){
+        return true; //cycle found
+      }
+    }
     return false;
   }
 };
